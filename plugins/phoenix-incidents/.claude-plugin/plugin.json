@@ -1,7 +1,7 @@
 {
   "name": "phoenix-incidents",
   "description": "Draft an RCA from Phoenix incident data and your team's own tools",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "author": {
     "name": "Phoenix Incidents"
   }
