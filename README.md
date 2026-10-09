@@ -8,7 +8,7 @@ AI skills for Phoenix Incident Management in Jira.
 
 Drafts a root cause analysis (RCA) before your RCA meeting.
 
-It reads the incident and RCA in Jira, including the Phoenix timeline, Five Whys and status dates. It also checks the tools you have connected, such as Slack, Sentry, Datadog or GitHub. Then it writes a draft with a summary, impact, timeline, root causes, gaps and action items.
+It reads the incident and RCA in Jira, including the Phoenix timeline, Five Whys and status dates. It also checks the tools you have connected, such as Slack, Sentry, Datadog or GitHub. Any chat, logs, monitoring, deploy or paging tool works. Then it writes a draft with a summary, impact, timeline, root causes, gaps and action items.
 
 It asks before it changes anything. It only fills empty RCA text fields, and it never edits the timeline, the Five Whys or the status.
 

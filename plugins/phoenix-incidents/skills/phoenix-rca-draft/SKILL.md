@@ -71,7 +71,9 @@ Check which tools you have. For each kind below, use it if connected. If not, te
 | Logs and errors | Sentry, Datadog Logs, CloudWatch, Splunk | First error, error spike, error message text |
 | Monitoring | Datadog, New Relic, Grafana, Prometheus | When metrics went bad and came back |
 | Deploys and changes | GitHub, GitLab, CI, AWS, change tickets | Deploys or config changes shortly before `Incident Start` |
-| Paging | Phoenix Alerts, PagerDuty, Opsgenie | When the alert fired and who acknowledged it |
+| Paging | Phoenix Alerts, PagerDuty, Opsgenie, VictorOps (Splunk On-Call) | When the alert fired and who acknowledged it |
+
+The examples are not a full list. Use any connected tool that fits a kind, even one not named here. If you are not sure what kind a tool is, ask the user.
 
 Search from 2 hours before `Incident Start` to 1 hour after `Incident End`. Times in Jira carry their own offset. Convert everything to one time zone and say which.
 
