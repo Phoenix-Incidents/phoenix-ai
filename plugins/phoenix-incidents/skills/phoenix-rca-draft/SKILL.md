@@ -58,12 +58,13 @@ Phoenix links two kinds of issues to the incident. Read each linked issue's summ
 It holds JSON text. Read every question and answer in it.
 - A question can split into several answers, each with its own whys. Number them like an outline: 1, 2, 3. The splits of question 2 are 2.a and 2.b. The whys in split 2.a are 2.a.1, 2.a.2.
 - It may hold next questions Phoenix suggested. These have no answer yet. Some are flagged as a likely root cause. Treat a flag as a hint, not a fact.
+- A suggested question for a split goes after the last why in that split. A suggested question for the main line goes after the last main-line question, as its next number.
 - Older RCAs use version 2, a straight list with no splits: `{"version": 2, "entries": [{"question": "...", "answer": "...", "isBranched": false}]}`. Number it 1, 2, 3. Ignore `isBranched`. Phoenix does not use it.
 - Some connectors escape the brackets in this text (`\[`, `\]`). Remove the backslashes before reading it.
 
 ## 4. Gather evidence from the team's tools
 
-Check which tools you have. For each kind below, use it if connected. If not, tell the user what it would add and ask if they want to connect one before you continue. Do not stop if they say no.
+Check every kind below before you write the draft.
 
 | Kind | Examples | What to look for |
 |---|---|---|
@@ -73,7 +74,18 @@ Check which tools you have. For each kind below, use it if connected. If not, te
 | Deploys and changes | GitHub, GitLab, CI, AWS, change tickets | Deploys or config changes shortly before `Incident Start` |
 | Paging | Phoenix Alerts, PagerDuty, Opsgenie, VictorOps (Splunk On-Call) | When the alert fired and who acknowledged it |
 
-The examples are not a full list. Use any connected tool that fits a kind, even one not named here. If you are not sure what kind a tool is, ask the user.
+The examples are not a full list. Use any connected tool that fits a kind, even one not named here.
+
+**Check the tools**
+1. Look at the tools you actually have. Do not guess. Note any tool that needs the user to sign in first.
+2. Check your memory and the user's saved instructions for kinds this team does not use. Skip those kinds.
+3. A kind is covered only if a connected tool can read this team's data for it. If you are not sure a tool covers the systems in this incident, treat the kind as not covered.
+4. If every kind is covered or skipped, continue without asking.
+5. Otherwise, send one message. List what is connected for each kind, which tools need a sign-in, and which kinds are missing and what each would add. Then **stop and wait for the user's answer** before you write the draft.
+6. Use what they connect. Draft without the rest.
+
+**Remember the answer**
+If the user says the team does not use a kind of tool, offer to save that to your memory or their saved instructions, so they are not asked again. Save it only after they agree. If you have no memory feature, say they will be asked again next time.
 
 Search from 2 hours before `Incident Start` to 1 hour after `Incident End`. Times in Jira carry their own offset. Convert everything to one time zone and say which.
 
@@ -84,7 +96,7 @@ Use these sections.
 1. **Summary**: what broke, for how long, who was affected. Two or three sentences.
 2. **Impact**: customers, services, severity, duration.
 3. **Timeline**: one table, oldest first. Columns: time, what happened, source. Merge the Phoenix timeline, linked contributing factors and what you found. Mark each row's source (`Phoenix timeline`, `Slack`, `Datadog`, ...).
-4. **Five Whys so far**: the current tree with its numbers. List Phoenix's suggested next questions under the line they follow, and mark the flagged ones. If it is empty, say the team will do it in the meeting.
+4. **Five Whys so far**: the current tree with its numbers. List Phoenix's suggested next questions where they belong, and mark the flagged ones. If it is empty, say the team will do it in the meeting.
 5. **Leads for the Five Whys**: the evidence that will help the team answer the first "why". Facts only. Do not answer the whys or name a root cause.
 6. **Resolution**: what fixed it.
 7. **Gaps and questions for the meeting**: missing data, conflicting times, empty fields, open Five Whys lines.
