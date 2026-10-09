@@ -108,23 +108,22 @@ Rules:
 
 ## 6. Hand it over
 
-Show the draft to the user. Then offer two things. Do each only after they say yes.
+Show the draft to the user in the chat. It is for them to read before the meeting. Do not post it to Jira.
 
-**a. Fill the empty RCA text fields.** These are safe to edit:
+Then offer to fill the empty RCA text fields. Do this only after they say yes. These are safe to edit:
 - `Executive Summary`, `Impact to Customers`, `Summary of Resolution`, `Error Message`, `Additional Notes/Observations`
 
 Rules for filling:
-- Only fill a field that is empty. Never overwrite what a person wrote. If a field has text, ask the user whether to add your version to the comment or drop it.
+- Only fill a field that is empty. Never overwrite what a person wrote. If a field has text, leave it alone. Your version is already in the draft.
 - Only while the RCA status is Data Gathering or Analysis Meeting. Never touch an RCA that is Under Review or Finalized.
 - Start each field with the line "AI draft. Review before the RCA is finalized."
 - List which fields you filled.
-
-**b. Post the rest as one comment on the RCA issue.** This covers the timeline table, the Five Whys review, root causes, gaps and action items.
 
 Do **not** edit these yourself:
 - any issue property, including the timeline
 - the `Five Whys` field
 - the RCA or incident status
+- comments. Do not post the draft or anything else as a comment.
 - any incident field
 - issue links. Do not create action items or link issues. Suggest them in the draft instead.
 
