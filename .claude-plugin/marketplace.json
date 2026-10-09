@@ -1,0 +1,14 @@
+{
+  "name": "phoenix-ai",
+  "description": "AI skills for Phoenix Incident Management",
+  "owner": {
+    "name": "Phoenix Incidents"
+  },
+  "plugins": [
+    {
+      "name": "phoenix-incidents",
+      "source": "./plugins/phoenix-incidents",
+      "description": "Draft an RCA from Phoenix incident data and your team's own tools"
+    }
+  ]
+}
