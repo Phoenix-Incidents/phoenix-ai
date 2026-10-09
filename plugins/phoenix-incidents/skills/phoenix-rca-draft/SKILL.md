@@ -114,7 +114,7 @@ Show the draft to the user. Then offer two things. Do each only after they say y
 - `Executive Summary`, `Impact to Customers`, `Summary of Resolution`, `Error Message`, `Additional Notes/Observations`
 
 Rules for filling:
-- Only fill a field that is empty. Never overwrite what a person wrote. If a field has text, put your version in the comment instead.
+- Only fill a field that is empty. Never overwrite what a person wrote. If a field has text, ask the user whether to add your version to the comment or drop it.
 - Only while the RCA status is Data Gathering or Analysis Meeting. Never touch an RCA that is Under Review or Finalized.
 - Start each field with the line "AI draft. Review before the RCA is finalized."
 - List which fields you filled.
