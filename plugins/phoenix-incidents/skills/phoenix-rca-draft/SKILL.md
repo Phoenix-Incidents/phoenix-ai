@@ -79,7 +79,7 @@ Search from 2 hours before `Incident Start` to 1 hour after `Incident End`. Time
 
 ## 5. Write the draft
 
-Use these sections. Keep sentences short.
+Use these sections.
 
 1. **Summary**: what broke, for how long, who was affected. Two or three sentences.
 2. **Impact**: customers, services, severity, duration.
@@ -89,6 +89,12 @@ Use these sections. Keep sentences short.
 6. **Resolution**: what fixed it.
 7. **Gaps and questions for the meeting**: missing data, conflicting times, empty fields, open Five Whys lines.
 8. **Action items**: first list the linked action items with key, summary, status and owner. Say which root cause each one covers. Then suggest new ones only for root causes the team already reached in the Five Whys and no linked item covers. Never repeat a linked item. Leave this section out if there is nothing to list.
+
+### How to write
+- Plain English. Short sentences. Professional tone.
+- Use the correct technical terms: service names, error messages, metrics. Explain an acronym the first time it appears.
+- Avoid jargon that a plain word can replace.
+- Blameless: describe what happened and what allowed it, not who is at fault. Name people only for who did what in the timeline.
 
 ### Five Whys: live by default
 Most teams should do the Five Whys live in the RCA meeting. Do not write the whys for them unless the user asks.
