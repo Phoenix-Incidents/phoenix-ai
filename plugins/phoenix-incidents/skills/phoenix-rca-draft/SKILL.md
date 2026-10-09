@@ -58,7 +58,7 @@ Phoenix links two kinds of issues to the incident. Read each linked issue's summ
 It holds JSON text. Read every question and answer in it.
 - A question can split into several answers, each with its own whys. Number them like an outline: 1, 2, 3. The splits of question 2 are 2.a and 2.b. The whys in split 2.a are 2.a.1, 2.a.2.
 - It may hold next questions Phoenix suggested. These have no answer yet. Some are flagged as a likely root cause. Treat a flag as a hint, not a fact.
-- Older RCAs may store it in a simpler shape. Read whatever is there.
+- Older RCAs use version 2, a straight list with no splits: `{"version": 2, "entries": [{"question": "...", "answer": "...", "isBranched": false}]}`. Number it 1, 2, 3. Ignore `isBranched`. Phoenix does not use it.
 - Some connectors escape the brackets in this text (`\[`, `\]`). Remove the backslashes before reading it.
 
 ## 4. Gather evidence from the team's tools
