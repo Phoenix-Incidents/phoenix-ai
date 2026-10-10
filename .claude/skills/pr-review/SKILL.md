@@ -20,7 +20,7 @@ gh pr view <N> -R <owner/repo> --json number,title,author,headRefName,baseRefNam
 gh pr diff <N> -R <owner/repo> --name-only
 ```
 
-- If this PR already has a review from us, this is a **re-review**. Read the earlier review and the author's replies first (`gh api repos/<owner>/<repo>/pulls/<N>/reviews` and `.../issues/<N>/comments`).
+- If this PR already has a review from us, this is a **re-review**. Read the earlier review and the author's replies first (`gh api repos/<owner>/<repo>/pulls/<N>/reviews` and `.../issues/<N>/comments`). Then follow "Re-reviews" below instead of a full sweep.
 - Check out the PR head in a **detached worktree in the scratchpad**. Never touch the user's primary checkout. Never symlink the user's node_modules into it.
   ```
   git fetch -q origin main pull/<N>/head:pr-<N>-review
@@ -52,6 +52,18 @@ Do what the built-in `code-review` skill does: read changed files fully, find ca
 For large PRs (roughly over 1,500 changed lines), split the files into 3 to 4 areas and give each to a parallel read-only subagent. Each one gets the worktree path, the merge base, and the standards files to read. Each returns findings with severity, file:line and a short fix. Add one more subagent that does only the comment check above across the whole diff, because area reviewers focused on bugs skip comments.
 
 **Verify every finding yourself against the code before it goes in the comment.** Drop anything theoretical or unconfirmed.
+
+## Re-reviews
+
+A re-review is not a fresh full review. Code that did not change and passed last time stays passed. Raising new nits on it every round moves the goalposts and the PR never finishes.
+
+1. **Check every earlier item.** Mark each one fixed, still open, or answered. If the author replied with a reason that holds, accept it and drop the item.
+2. **Review only what changed** since the commit we last reviewed (the sha in our last review, or the review's `commit_id`). Use `git diff <old sha> <new head>`. If the author rebased, use `git range-diff <old base>..<old sha> <new base>..<new head>`.
+3. **Check what the changes touch.** If a fix changed shared code, check its callers too.
+4. **Old code gets must-fix items only.** A real bug or security hole in code we already passed still blocks the merge. Say it was missed last time. Do not add should-fix or nice-to-have items on unchanged code.
+5. **Run any check the earlier review skipped** across the whole diff, once. For example, an earlier review with no comment check.
+
+Run type-check, tests and lint again on the new head. For a large set of changes, split it across subagents the same way as Step 4.
 
 ## Step 5: Write the comment
 
