@@ -50,7 +50,7 @@ Read the comments on both issues too. Some connectors only return a comment coun
 The incident's issue properties hold the Phoenix timeline, the time it entered each status, and the alert that opened it. Read them all. Some timeline entries are made by Phoenix, such as start, end and status changes. Others were added by people, including chat messages pinned to the timeline. Ignore properties that only describe screen layout.
 
 ### Linked issues on the incident
-Phoenix links two kinds of issues to the incident. Read each linked issue's summary, status, assignee and due date.
+Phoenix links two kinds of issues to the incident. Read each linked issue's summary, status and assignee.
 - **Action items**: link "has action item" / "is an action item of". Work the team agreed to do because of this incident. They may be added before or after the meeting.
 - **Contributing factors**: link "has contributing factors" / "is a contributing factor of". Changes that helped cause the incident, such as deploys or change tickets.
 
